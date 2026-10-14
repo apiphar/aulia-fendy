@@ -28,7 +28,9 @@
   <div class="opening-card">
     <div class="label">The Wedding Of</div>
     <h1 class="names">Aulia <span class="amp">&</span> Fendy</h1>
-    <p>Kepada Yth. Bapak/Ibu/Saudara/i</p>
+    <p>Kepada Yth. 
+      <br>
+      <strong id="guestName">Bapak/Ibu/Saudara/i</strong></p>
     <p style="color:var(--muted);font-size:13px;margin-top:5px">Dengan hormat, kami mengundang Anda untuk hadir di hari bahagia kami.</p>
     <button class="btn" onclick="openInvitation()">Buka Undangan</button>
   </div>
@@ -66,7 +68,7 @@
    <div class="divider">&</div>
    <div class="person">
     <h3>Fendy Ahmad Fauzi, S.E, M.M</h3>
-    <p>Putra Kedua dari Bpk. Budi Soewanto, S.E<br>& Ibu Endang Setyawati</p>
+    <p>Putra Kedua dari Bpk. Soewanto, S.E<br>& Ibu Endang Setyawati</p>
    </div>
   </div>
  </div>
@@ -181,51 +183,6 @@
         </button>
       </div>
       
-      <div class="bank-card">
-        <div class="atm-card">
-          <div class="atm-top">
-            <div class="atm-brand">
-              <span class="atm-brand-name">BCA</span>
-              <span class="atm-brand-sub">WEDDING GIFT</span>
-            </div>
-          </div>
-      
-          <div class="atm-chip">
-            <div class="chip-line"></div>
-            <div class="chip-line"></div>
-            <div class="chip-line"></div>
-            <div class="chip-line"></div>
-          </div>
-      
-          <div class="atm-number" id="accountNumber">
-            1234 5678 90
-          </div>
-      
-          <div class="atm-bottom">
-            <div class="atm-owner">
-              <span class="atm-name">AULIA</span>
-            </div>
-      
-            <div class="atm-network">
-              <span class="network-circle circle-one"></span>
-              <span class="network-circle circle-two"></span>
-            </div>
-          </div>
-        </div>
-      
-        <button
-          type="button"
-          class="copy-button"
-          onclick="copyAccount()">
-          <span>▣</span> Salin Nomor Rekening
-        </button>
-      </div>
-    
-
-      
-
-
-
       <p class="gift-closing">
           Terima kasih atas doa, perhatian, dan kasih sayang
           yang diberikan kepada kami.
@@ -369,7 +326,7 @@ function copyAccount() {
 // FADE-UP ANIMATION ON SCROLL
 // ========================================
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", setGuestName, function () {
   const animatedElements = document.querySelectorAll(`
     #details .label,
     #details .content-card,
@@ -419,6 +376,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   animatedElements.forEach(element => observer.observe(element));
 });
+
+function setGuestName() {
+  const params = new URLSearchParams(window.location.search);
+  const guest = params.get("to");
+
+  const guestName = document.getElementById("guestName");
+
+  if (guest && guest.trim() !== "") {
+    guestName.textContent = guest.trim();
+  } else {
+    guestName.textContent = "Bapak/Ibu/Saudara/i";
+  }
+}
+
+
 
 </script>
 </body>
