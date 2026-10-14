@@ -1473,41 +1473,77 @@ input[type="radio"] {
     position: relative;
     isolation: isolate;
     width: 100%;
+    min-height: 230px;
     height: auto;
     aspect-ratio: auto;
-    padding: 22px 24px;
+    box-sizing: border-box;
+
+    padding: 24px;
     overflow: hidden;
     border-radius: 18px;
-    color: #fffaf0;
+
+    color: #ffffff;
+
     background:
       radial-gradient(
-        circle at 90% 10%,
-        rgba(194, 169, 112, .25),
-        transparent 38%
+        circle at 90% 5%,
+        rgba(255, 255, 255, .28),
+        transparent 32%
       ),
-      linear-gradient(135deg, #253b50, #102438 65%, #172b3d);
+      radial-gradient(
+        circle at 0% 100%,
+        rgba(0, 174, 180, .45),
+        transparent 48%
+      ),
+      linear-gradient(
+        125deg,
+        #ff9d00 0%,
+        #f58220 38%,
+        #ed6b12 70%,
+        #d94c0b 100%
+      );
+
     box-shadow:
-      0 18px 35px rgba(18, 35, 49, .22),
-      inset 0 1px 0 rgba(255, 255, 255, .18);
-  }
-  
-  /* Decorative curves */
-  .atm-card::before {
+      0 18px 35px rgba(120, 62, 12, .24),
+      inset 0 1px 0 rgba(255, 255, 255, .35);
+
+    border: 1px solid rgba(255, 255, 255, .2);
+}
+
+.atm-card::before {
     content: "";
     position: absolute;
     z-index: -1;
-    width: 250px;
-    height: 250px;
-    right: -100px;
-    bottom: -145px;
-    border: 1px solid rgba(218, 195, 143, .28);
+    width: 230px;
+    height: 230px;
+    right: -75px;
+    top: -100px;
     border-radius: 50%;
+    border: 28px solid rgba(255, 255, 255, .10);
     box-shadow:
-      0 0 0 18px rgba(218, 195, 143, .035),
-      0 0 0 38px rgba(218, 195, 143, .035),
-      0 0 0 58px rgba(218, 195, 143, .035);
+      0 0 0 22px rgba(255, 255, 255, .05),
+      0 0 0 48px rgba(255, 255, 255, .035);
     pointer-events: none;
-  }
+}
+
+.atm-card::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -30px;
+    bottom: -35px;
+    width: 75%;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 170, 175, .65),
+      rgba(0, 170, 175, .03)
+    );
+    transform: rotate(-12deg);
+    filter: blur(2px);
+    pointer-events: none;
+}
   
   .atm-top {
     display: flex;
