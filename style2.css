@@ -1243,7 +1243,7 @@ input[type="radio"] {
       rgba(31, 32, 27, .38) 45%,
       rgba(31, 32, 27, .66) 100%
     ),
-    url("foto\ 4.jpeg") center 42% / cover no-repeat;
+    url("foto_b.jpeg") center 42% / cover no-repeat;
 
   color: #fffdf8;
 }
