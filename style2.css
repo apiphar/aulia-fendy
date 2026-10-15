@@ -1844,6 +1844,160 @@ input[type="radio"] {
       font-size: 23px;
     }
   }
+
+
+/* ===== WEDDING LIGHTBOX ===== */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  padding: 60px 24px 40px;
+  background: rgba(17, 19, 16, .94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity .35s ease,
+    visibility .35s ease;
+}
+
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.lightbox-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  max-width: 85vw;
+  max-height: 85vh;
+}
+
+.lightbox-content img {
+  display: block;
+  max-width: 100%;
+  max-height: 78vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+
+  border: 1px solid rgba(221, 195, 145, .55);
+  padding: 5px;
+  background: #f8f4eb;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, .25),
+    0 30px 80px rgba(0, 0, 0, .45);
+
+  transform: scale(.92);
+  transition: transform .4s cubic-bezier(.2, .7, .2, 1);
+}
+
+.lightbox.active .lightbox-content img {
+  transform: scale(1);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(221, 195, 145, .4);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, .06);
+  color: #f5ead7;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1;
+
+  cursor: pointer;
+  transition: background .25s ease, transform .25s ease;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, .16);
+  transform: rotate(90deg);
+}
+
+.lightbox-nav {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(221, 195, 145, .4);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .06);
+  color: #f5ead7;
+  font-size: 18px;
+
+  cursor: pointer;
+  transition: background .25s ease, transform .25s ease;
+}
+
+.lightbox-nav:hover {
+  background: rgba(221, 195, 145, .2);
+  transform: scale(1.08);
+}
+
+.lightbox-counter {
+  margin: 0;
+  color: #e8d8bb;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+/* Tampilan HP */
+@media (max-width: 600px) {
+  .lightbox {
+    gap: 8px;
+    padding: 55px 10px 30px;
+  }
+
+  .lightbox-content {
+    max-width: calc(100vw - 100px);
+  }
+
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 72vh;
+    padding: 4px;
+  }
+
+  .lightbox-close {
+    top: 12px;
+    right: 14px;
+  }
+
+  .lightbox-nav {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+  }
+}
+
   
   
   
