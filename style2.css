@@ -1998,6 +1998,64 @@ input[type="radio"] {
   }
 }
 
+/* Wedding gift shipping address */
+.shipping-address {
+  max-width: 520px;
+  margin: 32px auto 28px;
+  padding: 24px 22px;
+  text-align: left;
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(166,145,105,.28);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(70,55,35,.08);
+}
+.shipping-address .shipping-label {
+  margin: 0 0 8px;
+  color: #9b835b;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+.shipping-address h3 {
+  margin: 0 0 16px;
+  color: #514735;
+  font-family: inherit;
+  font-size: 21px;
+  text-align: center;
+}
+.shipping-address .address-row {
+  margin: 10px 0;
+  color: #625b50;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.shipping-address .address-row strong {
+  display: block;
+  margin-bottom: 2px;
+  color: #8a7654;
+  font-size: 11px;
+  letter-spacing: .7px;
+  text-transform: uppercase;
+}
+.shipping-address .copy-address-button {
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  padding: 12px 16px;
+  border: 1px solid #9b835b;
+  border-radius: 30px;
+  background: #9b835b;
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: .25s ease;
+}
+.shipping-address .copy-address-button:hover {
+  background: #806b49;
+  transform: translateY(-2px);
+}
+
   
   
   

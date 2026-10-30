@@ -184,6 +184,33 @@
             <span>▣</span> Salin Nomor Rekening
           </button>
         </div>
+
+        <div class="shipping-address">
+          <p class="shipping-label">SEND A LITTLE LOVE</p>
+          <h3>Alamat Pengiriman Hadiah</h3>
+
+          <div class="address-row">
+            <strong>Nama Penerima</strong>
+            <span id="shippingRecipient">Aulia & Fendy</span>
+          </div>
+
+          <div class="address-row">
+            <strong>Nomor WhatsApp</strong>
+            <span id="shippingPhone">0815-1152-2780</span>
+          </div>
+
+          <div class="address-row">
+            <strong>Alamat Lengkap</strong>
+            <span id="shippingAddress">Perumahan Villa Ilhami Balaraja Blok E6, Parahu, Sukamulya, Kab. Tangerang</span>
+          </div>
+
+          <button
+            type="button"
+            class="copy-address-button"
+            onclick="copyShippingAddress()">
+            ▣ SALIN ALAMAT PENGIRIMAN
+          </button>
+        </div>
         
         <p class="gift-closing">
             Terima kasih atas doa, perhatian, dan kasih sayang
@@ -493,6 +520,35 @@ document.addEventListener("keydown", (event) => {
     showLightbox(currentImageIndex + 1);
   }
 });
+
+function copyShippingAddress() {
+  const recipient = document.getElementById("shippingRecipient").textContent.trim();
+  const phone = document.getElementById("shippingPhone").textContent.trim();
+  const address = document.getElementById("shippingAddress").textContent.trim();
+
+  const shippingInfo = `Nama Penerima: ${recipient}\nNomor WhatsApp: ${phone}\nAlamat: ${address}`;
+
+  navigator.clipboard.writeText(shippingInfo)
+    .then(() => alert("Alamat pengiriman berhasil disalin!"))
+    .catch(() => {
+      const input = document.createElement("textarea");
+      input.value = shippingInfo;
+      input.style.position = "fixed";
+      input.style.opacity = "0";
+      document.body.appendChild(input);
+      input.select();
+
+      try {
+        const success = document.execCommand("copy");
+        alert(success
+          ? "Alamat pengiriman berhasil disalin!"
+          : "Gagal menyalin alamat pengiriman.");
+      } catch (error) {
+        alert("Gagal menyalin. Silakan salin alamat secara manual.");
+      }
+      input.remove();
+    });
+}
 
 
 
